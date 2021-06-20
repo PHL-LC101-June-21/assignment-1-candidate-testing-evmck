@@ -8,11 +8,11 @@ let candidateName;
 let question;
 let correctAnswer = "Sally Ride";
 let candidateAnswer;
-let questionOne = "Who was the first American woman in space? ";
-let questionTwo = "True or False: 5 Kilometers == 5000 meters? ";
-let questionThree = "(5+3)/2*10 = ? ";
-let questionFour = "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ";
-let questionFive = "What is the minimum crew size for the ISS? ";
+let questionOne = "Who was the first American woman in space?";
+let questionTwo = "True or False: 5 Kilometers == 5000 meters?";
+let questionThree = "(5+3)/2*10 = ?";
+let questionFour = "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?";
+let questionFive = "What is the minimum crew size for the ISS?";
 const questions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
 const correctAnswer1 = "Sally Ride";
 const correctAnswer2 = "true";
@@ -26,7 +26,7 @@ let candidateAnswer3;
 let candidateAnswer4;
 let candidateAnswer5;
 let candidateAnswers = [candidateAnswer1, candidateAnswer2, candidateAnswer3,candidateAnswer4,candidateAnswer5];
-
+let questionOrder = ["first","second","third","fourth","fifth"];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -51,7 +51,11 @@ function gradeQuiz(candidateAnswers) {
 
  let grade = 0; 
   while (grade < 5) {
-  console.log(` With respect to the question "${questions[grade]}", your answer was "${candidateAnswers[grade]}", the correct answer was "${correctAnswers[grade]}""`);
+  console.log(
+  `The ${questionOrder[grade]} question was:
+   "${questions[grade]}" 
+   Your answer was: "${candidateAnswers[grade]}" 
+   The correct answer was: "${correctAnswers[grade]}"`);
     grade++;}
 console.log()}
 
