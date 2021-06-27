@@ -15,7 +15,7 @@ let questionFour = "Given the array [8, 'Orbit', 'Trajectory', 45], what entry i
 let questionFive = "What is the minimum crew size for the ISS?";
 const questions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
 const correctAnswer1 = "Sally Ride";
-const correctAnswer2 = "true";
+const correctAnswer2 = "True";
 const correctAnswer3 = "40";
 const correctAnswer4 = "Trajectory";
 const correctAnswer5 = "3";
@@ -27,10 +27,11 @@ let candidateAnswer4;
 let candidateAnswer5;
 let candidateAnswers = [candidateAnswer1, candidateAnswer2, candidateAnswer3,candidateAnswer4,candidateAnswer5];
 let questionOrder = ["first","second","third","fourth","fifth"];
+let grade = 0;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-candidateName = input.question("What is your name?" )
+candidateName = input.question("What is your name? " )
 }
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
  function askQuestion() {
@@ -49,15 +50,26 @@ function gradeQuiz(candidateAnswers) {
  //TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
 
- let grade = 0; 
-  while (grade < 5) {
+ let scoreOutput = 0; 
+  while (scoreOutput < 5) {
   console.log(
-  `The ${questionOrder[grade]} question was:
-   "${questions[grade]}" 
-   Your answer was: "${candidateAnswers[grade]}" 
-   The correct answer was: "${correctAnswers[grade]}"`);
-    grade++;}
+  `The ${questionOrder[scoreOutput]} question was:
+   "${questions[scoreOutput]}" 
+   Your answer was: "${candidateAnswers[scoreOutput]}" 
+   The correct answer was: "${correctAnswers[scoreOutput]}"`);
+    scoreOutput++;}
+  for (let i = 0; i < 5; i++) 
+  { if (candidateAnswers[i]==correctAnswers[i]) { 
+    grade++} else { grade;
+    }
+   }
+ let finalScore = ((grade / 5) * 100);
+ console.log(`${candidateName}, of the 5 Questions you answered ${grade} of them correctly`);
+ console.log(` Your final score for this quiz is ${finalScore}%`)
+ if (finalScore >= 80) {console.log("You have passed the test! Congratulations.");} 
+ else {console.log("You have failed the test - but failure is never the end! Try & try again.");}
 console.log()}
+;
 
 function runProgram() {
   askForName();
